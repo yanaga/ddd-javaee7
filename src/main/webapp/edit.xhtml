@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Simple JSF Facelets page</title>
+</h:head>
+
+<h:body>
+    <h:form>
+        <p:panel header="Person">
+            <h:panelGrid columns="3">
+                <p:outputLabel for="name" value="Name:"/>
+                <p:inputText id="name" value="#{personController.person.name}"/>
+                <p:message for="name"/>
+
+                <p:outputLabel for="ssn" value="SSN:"/>
+                <p:inputText id="ssn" value="#{personController.person.ssn}"/>
+                <p:message for="ssn"/>
+            </h:panelGrid>
+            <p:commandButton value="OK" action="#{personController.save()}" update="@form" />
+        </p:panel>
+    </h:form>
+</h:body>
+
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Simple JSF Facelets page</title>
+</h:head>
+
+<h:body>
+    <h:form id="form">
+        <p:panel header="Invoice">
+            <p:dataTable value="#{invoiceController.invoice.items}" var="i">
+                <p:column headerText="Code">
+                    <h:outputText value="#{i.code}"/>
+                </p:column>
+                <p:column headerText="Amount">
+                    <h:outputText value="#{i.amount}"/>
+                </p:column>
+            </p:dataTable>
+            <p:commandButton value="New Item" action="#{invoiceController.newItem()}" update=":dialog" oncomplete="PF('dialog').show();" />
+            <p:commandButton value="Save" action="#{invoiceController.save()}" />
+        </p:panel>
+    </h:form>
+
+    <p:dialog widgetVar="dialog" closeOnEscape="true">
+        <h:form id="dialog">
+            <h:panelGrid columns="3">
+                <p:outputLabel for="code" value="Code:"/>
+                <p:inputText id="code" value="#{invoiceController.item.code}"/>
+                <p:message for="code"/>
+
+                <p:outputLabel for="amount" value="Amount:"/>
+                <p:inputText id="amount" value="#{invoiceController.item.amount}"/>
+                <p:message for="amount"/>
+            </h:panelGrid>
+            <p:commandButton value="OK" action="#{invoiceController.addItem()}" update=":form" oncomplete="PF('dialog').hide();"/>
+        </h:form>
+    </p:dialog>
+</h:body>
+
+</html>
