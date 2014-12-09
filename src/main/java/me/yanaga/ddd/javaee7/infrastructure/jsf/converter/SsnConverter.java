@@ -18,7 +18,7 @@ public class SsnConverter implements Converter {
 				return Ssn.of(s);
 			}
 			catch (Exception e) {
-				throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_WARN, "Invalida SSN", null));
+				throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_WARN, "Invalid SSN", null));
 			}
 		}
 		return null;

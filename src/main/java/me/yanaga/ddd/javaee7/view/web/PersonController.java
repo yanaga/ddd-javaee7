@@ -1,9 +1,8 @@
 package me.yanaga.ddd.javaee7.view.web;
 
-import me.yanaga.ddd.javaee7.domain.model.People;
 import me.yanaga.ddd.javaee7.domain.model.Person;
 import me.yanaga.ddd.javaee7.domain.model.PersonRepository;
-import me.yanaga.ddd.javaee7.domain.model.Ssn;
+import me.yanaga.ddd.javaee7.domain.model.QPerson;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -20,10 +19,8 @@ public class PersonController {
 	private Person person = new Person();
 
 	public List<Person> getPeople() {
-		return personRepository.findAll(
-				People.withName("abc")
-						.and(People.withSsn(Ssn.of("123456789")))
-		);
+		QPerson qPerson = QPerson.person;
+		return personRepository.findAll();
 	}
 
 	public String create() {
