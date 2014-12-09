@@ -29,7 +29,7 @@
         <dependency>
             <groupId>me.yanaga</groupId>
             <artifactId>winter-data-jpa</artifactId>
-            <version>1.1-SNAPSHOT</version>
+            <version>1.1</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
